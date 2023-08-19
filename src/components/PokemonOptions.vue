@@ -1,6 +1,15 @@
-<script lang="ts"> 
+<script lang="ts">
+import type { ListPokemonOptions } from '@/interfaces/ListPokemonOptions.interface';
+
+ 
 
     export default {
+        props: {
+            pokemons: {
+                type: Array<ListPokemonOptions>,
+                required: true
+            }
+        }
 
 }
 </script>
@@ -8,10 +17,9 @@
 <template> 
      <div class="options-container">
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
+            <li v-for="pokemon in pokemons" :key="pokemon.id">
+              {{ pokemon.name }}
+            </li>                        
         </ul>
     </div>
 </template>
